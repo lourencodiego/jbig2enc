@@ -16,6 +16,7 @@
 // limitations under the License.
 
 #include <vector>
+#include <string>
 
 #include <sys/types.h>
 #include <stdio.h>
@@ -41,6 +42,14 @@
 #define WINBINARY 0
 #endif
 
+int main(int argc, char** argv);
+
+int
+encode_image(int argc, char** argv) {
+    return main(argc, argv);
+}
+
+
 static void
 usage(const char *argv0) {
   fprintf(stderr, "Usage: %s [options] <input filenames...>\n", argv0);
@@ -64,7 +73,6 @@ usage(const char *argv0) {
 }
 
 static bool verbose = false;
-
 
 static void
 pixInfo(PIX *pix, const char *msg) {
