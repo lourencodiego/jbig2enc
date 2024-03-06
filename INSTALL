@@ -25,3 +25,18 @@ msinttypes-r26.zip from http://code.google.com/p/msinttypes/downloads/list)
 and place it to 'include' directory.
 
 Them open vs2008/jbig2enc.sln in Visual C++ 2008 and build solution.
+
+VS 2019 notes
+=================
+Installing dependencies:
+git clone https://github.com/Microsoft/vcpkg.git
+cd vcpkg
+./bootstrap-vcpkg.sh # "./bootstrap-vcpkg.bat"
+./vcpkg integrate install
+./vcpkg install leptonica #the default is x64 or use --triplet=x86-windows, 
+
+copy folders /include and /lib from /vcpkg/installed/x64-windows
+
+Download stdint.h for Microsoft Visual Studio (part of package
+msinttypes-r26.zip from http://code.google.com/p/msinttypes/downloads/list)
+and place it to 'include' directory
