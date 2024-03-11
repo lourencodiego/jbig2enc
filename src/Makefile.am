@@ -9,11 +9,16 @@ libjbig2enc_la_SOURCES = jbig2enc.cc jbig2arith.cc jbig2sym.cc jbig2comparator.c
 libjbig2enc_la_LDFLAGS = -no-undefined -version-info $(GENERIC_LIBRARY_VERSION)
 include_HEADERS = jbig2arith.h jbig2sym.h jbig2structs.h jbig2segments.h jbig2comparator.h
 
-bin_PROGRAMS = jbig2
-jbig2_SOURCES = jbig2.cc
-jbig2_LDADD = libjbig2enc.la 
-jbig2_LDFLAGS = -static
+lib_LTLIBRARIES = libjbig2.la
+libjbig2_la_SOURCES = jbig2.cc
+libjbig2_la_LDFLAGS = -no-undefined -version-info $(GENERIC_LIBRARY_VERSION)
+include_HEADERS = jbig2.h
+
+bin_PROGRAMS = dsjbig2
+dsjbig2_SOURCES = dsjbig2.cc
+dsjbig2_LDADD = libjbig2enc.la libjbig2.la 
+dsjbig2_LDFLAGS = -static
 
 if MINGW
-jbig2_LDADD += -lws2_32
+dsjbig2_LDADD += -lws2_32
 endif 
